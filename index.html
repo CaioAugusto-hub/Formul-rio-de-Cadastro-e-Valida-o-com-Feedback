@@ -371,7 +371,7 @@ item.erro
 
 });
 
-formulario.addEventListener("submit", function(e){
+formulario.addEventListener("submit", (e) => {
 
 e.preventDefault();
 
@@ -541,10 +541,10 @@ document.querySelectorAll(".erro-campo")
 .forEach(campo => {
     campo.classList.remove("erro-campo");
     campo.removeAttribute("aria-invalid");
-})
+});})
 
 </script>
 
 </body>
-}
+
 </html>
