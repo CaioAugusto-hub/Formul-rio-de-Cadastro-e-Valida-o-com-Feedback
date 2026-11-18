@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contato | Harmonia Instrumentos Musicais</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    background: #f4f4f4;
+}
+
+main{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1{
+    margin-top: 0;
+}
+
+.campo{
+    margin-bottom: 20px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+select{
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+fieldset{
+    margin-bottom:20px;
+    padding:15px;
+}
+
+legend{
+    font-weight:bold;
+}
+
+.obrigatorio{
+    color:#c00000;
+}
+
+.erro{
+    display:block;
+    color:#c00000;
+    margin-top:5px;
+}
+
+.erro-campo{
+    border:2px solid #c00000;
+}
+
+#resumo-erros{
+    display:none;
+    border:2px solid #c00000;
+    background:#fff4f4;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+#resumo-erros ul{
+    margin:0;
+    padding-left:20px;
+}
+
+button{
+    padding:12px 24px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.visually-hidden{
+    position:absolute;
+    left:-10000px;
+}
+
+.sucesso{
+    color:green;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+</style>
+</head>
+<body>
+
+<main>
+
+<h1>Cadastro de Cliente</h1>
+
+<p>
+Os campos marcados com
+<span class="obrigatorio">*</span>
+são obrigatórios.
+</p>
+
+<div
+    id="resumo-erros"
+    role="alert"
+    tabindex="-1"
+    aria-live="assertive">
+</div>
+
+<form id="formulario" novalidate>
+
+<div class="campo">
+<label for="nome">
+Nome Completo <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="text"
+    id="nome"
+    name="nome"
+    aria-describedby="erro-nome">
+
+<span id="erro-nome" class="erro"></span>
+</div>
+
+<div class="campo">
+<label for="email">
+E-mail <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="email"
+    id="email"
+    name="email"
+    aria-describedby="erro-email">
+
+<span id="erro-email" class="erro"></span>
+</div>
+
+<div class="campo">
+<label for="cpf">
+CPF <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="text"
+    id="cpf"
+    name="cpf"
+    required
+    placeholder="000.000.000-00"
+    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+    aria-describedby="erro-cpf">
+
+<span id="erro-cpf" class="erro"></span>
+</div>
+
+<div class="campo">
+<label for="nascimento">
+Data de Nascimento <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="date"
+    id="nascimento"
+    name="nascimento"
+    aria-describedby="erro-nascimento">
+
+<span id="erro-nascimento" class="erro"></span>
+</div>
+
+<div class="campo">
+<label for="telefone">
+Telefone
+</label>
+
+<input
+    type="tel"
+    id="telefone"
+    name="telefone">
+</div>
+
+<div class="campo">
+<label for="senha">
+Senha <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="password"
+    id="senha"
+    name="senha"
+    aria-describedby="erro-senha">
+
+<span id="erro-senha" class="erro"></span>
+</div>
+
+<div class="campo">
+<label for="confirmarSenha">
+Confirmar Senha <span class="obrigatorio">*</span>
+</label>
+
+<input
+    type="password"
+    id="confirmarSenha"
+    name="confirmarSenha"
+    aria-describedby="erro-confirmarSenha">
+
+<span id="erro-confirmarSenha" class="erro"></span>
+</div>
+
+<fieldset>
+<legend>Gênero <span class="obrigatorio">*</span></legend>
+
+<input type="radio" id="masculino" name="genero" value="Masculino">
+<label for="masculino">Masculino</label>
+
+<input type="radio" id="feminino" name="genero" value="Feminino">
+<label for="feminino">Feminino</label>
+
+<input type="radio" id="outro" name="genero" value="Outro">
+<label for="outro">Outro</label>
+
+<span id="erro-genero" class="erro"></span>
+</fieldset>
+
+<fieldset>
+<legend>Interesses</legend>
+
+<input type="checkbox" id="guitarras" name="interesses">
+<label for="guitarras">Guitarras</label>
+
+<input type="checkbox" id="teclados" name="interesses">
+<label for="teclados">Teclados</label>
+
+<input type="checkbox" id="baterias" name="interesses">
+<label for="baterias">Baterias</label>
+
+<input type="checkbox" id="violinos" name="interesses">
+<label for="violinos">Violinos</label>
+</fieldset>
+
+<div class="campo">
+<label for="origem">
+Como conheceu o site?
+</label>
+
+<select id="origem" name="origem">
+    <option value="">Selecione uma opção</option>
+    <option>Google</option>
+    <option>Instagram</option>
+    <option>YouTube</option>
+    <option>Facebook</option>
+    <option>Indicação</option>
+</select>
+</div>
+
+<div class="campo">
+<input
+    type="checkbox"
+    id="termos"
+    name="termos"
+    aria-describedby="erro-termos">
+
+<label for="termos">
+Aceito os termos de uso
+<span class="obrigatorio">*</span>
+</label>
+
+<span id="erro-termos" class="erro"></span>
+</div>
+
+<div class="visually-hidden">
+
+<label for="website">
+Não preencha este campo
+</label>
+
+<input
+    type="text"
+    id="website"
+    name="website">
+
+</div>
+
+<button type="submit">
+Enviar Cadastro
+</button>
+
+<div id="mensagemSucesso" class="sucesso"></div>
+
+</form>
+
+</main>
+
+<script>
+
+const formulario = document.getElementById("formulario");
+
+function limparErro(campo, idErro){
+
+    campo.classList.remove("erro-campo");
+    campo.removeAttribute("aria-invalid");
+
+    document.getElementById(idErro).textContent = "";
+}
+
+function mostrarErro(campo, idErro, mensagem){
+
+    campo.classList.add("erro-campo");
+
+    campo.setAttribute(
+        "aria-invalid",
+        "true"
+    );
+
+    document.getElementById(idErro)
+        .textContent = mensagem;
+}
+
+[
+{
+campo:"nome",
+erro:"erro-nome"
+},
+{
+campo:"email",
+erro:"erro-email"
+},
+{
+campo:"cpf",
+erro:"erro-cpf"
+},
+{
+campo:"nascimento",
+erro:"erro-nascimento"
+},
+{
+campo:"senha",
+erro:"erro-senha"
+},
+{
+campo:"confirmarSenha",
+erro:"erro-confirmarSenha"
+}
+].forEach(item => {
+
+document
+.getElementById(item.campo)
+.addEventListener("input", () => {
+
+limparErro(
+document.getElementById(item.campo),
+item.erro
+);
+
+});
+
+});
+
+formulario.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+document.getElementById("erro-genero").textContent = "";
+document.getElementById("erro-termos").textContent = "";
+
+const erros = [];
+
+const nome = document.getElementById("nome");
+const email = document.getElementById("email");
+const cpf = document.getElementById("cpf");
+const nascimento = document.getElementById("nascimento");
+const senha = document.getElementById("senha");
+const confirmarSenha = document.getElementById("confirmarSenha");
+const termos = document.getElementById("termos");
+
+let primeiroErro = null;
+
+function registrarErro(
+campo,
+idErro,
+mensagem
+){
+
+mostrarErro(campo,idErro,mensagem);
+
+if(!primeiroErro){
+primeiroErro = campo;
+}
+
+erros.push(
+`<li><a href="#${campo.id}">
+${mensagem}
+</a></li>`
+);
+
+}
+
+if(nome.value.trim()===""){
+registrarErro(
+nome,
+"erro-nome",
+"Informe o nome completo."
+);
+}
+
+if(!email.validity.valid){
+registrarErro(
+email,
+"erro-email",
+"Informe um e-mail válido."
+);
+}
+
+if(!cpf.checkValidity()){
+    registrarErro(
+        cpf,
+        "erro-cpf",
+        "Informe um CPF no formato 000.000.000-00."
+    );
+}
+
+if(nascimento.value===""){
+registrarErro(
+nascimento,
+"erro-nascimento",
+"Informe a data de nascimento."
+);
+}
+
+if(senha.value.length < 6){
+registrarErro(
+senha,
+"erro-senha",
+"A senha deve possuir pelo menos 6 caracteres."
+);
+}
+
+if(confirmarSenha.value !== senha.value){
+
+registrarErro(
+confirmarSenha,
+"erro-confirmarSenha",
+"As senhas não coincidem."
+);
+
+}
+
+if(!document.querySelector('input[name="genero"]:checked')){
+
+document.getElementById(
+"erro-genero"
+).textContent =
+"Selecione um gênero.";
+
+erros.push(
+'<li><a href="#masculino">Selecione um gênero.</a></li>'
+);
+
+if(!primeiroErro){
+primeiroErro =
+document.getElementById(
+"masculino"
+);
+}
+
+}
+
+if(!termos.checked){
+
+document
+.getElementById(
+"erro-termos"
+)
+.textContent =
+"Aceite os termos de uso.";
+
+erros.push(
+'<li><a href="#termos">Aceite os termos de uso.</a></li>'
+);
+
+if(!primeiroErro){
+primeiroErro = termos;
+}
+
+}
+
+const resumo =
+document.getElementById(
+"resumo-erros"
+);
+
+if(erros.length > 0){
+
+resumo.style.display = "block";
+
+resumo.innerHTML = `
+<h2>Foram encontrados erros:</h2>
+<ul>
+${erros.join("")}
+</ul>
+`;
+
+resumo.focus();
+primeiroErro.focus();
+
+return;
+}
+
+if(
+document.getElementById("website")
+.value !== ""
+){
+return;
+}
+
+resumo.style.display = "none";
+
+document.getElementById(
+"mensagemSucesso"
+).textContent =
+"Cadastro enviado com sucesso!";
+
+formulario.reset();
+
+document.querySelectorAll(".erro-campo")
+.forEach(campo => {
+    campo.classList.remove("erro-campo");
+    campo.removeAttribute("aria-invalid");
+})
+
+</script>
+
+</body>
+}
+</html>
